@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人类只是我的兼职｜AI 求职成长 Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/match-details.css" />
+  <link rel="stylesheet" href="/korean-theme.css" />
+  <link rel="stylesheet" href="/product-flow.css" />
+  <link rel="stylesheet" href="/paste-support.css" />
+</head>
+<body>
+  <main class="shell">
+    <nav class="site-nav">
+      <button class="brand-button" data-view="homeView">人类只是我的兼职 <small>AI 求职成长 Agent</small></button>
+      <div class="nav-links"><button data-view="homeView">首页</button><button data-view="resultView">岗位分析</button><button data-view="trainingView">训练</button><button data-view="growthView">我的成长</button></div>
+    </nav>
+    <section id="homeView" class="view hero-view">
+      <div class="eyebrow">CAREER CLARITY / 01</div>
+      <h1>人类只是<br><span>我的兼职</span></h1>
+      <p class="hero-copy">把一份 JD，变成你今天就能执行的行动计划。</p>
+      <form id="analyzeForm" class="input-card">
+        <label for="jd">招聘 JD <span>必填</span></label>
+        <textarea id="jd" required minlength="20" placeholder="粘贴完整招聘 JD，例如岗位职责、任职要求、加分项……"></textarea>
+        <label for="situation">我的情况 <span>越具体越好</span></label>
+        <textarea id="situation" placeholder="你的经历、做过的项目、会什么工具、目前最担心什么……"></textarea>
+        <button class="primary-button" type="submit"><span>开始拆解</span><b>→</b></button>
+        <p class="form-hint">不需要整理格式，直接粘贴即可。你的内容只在本次分析中使用。</p>
+      </form>
+      <div class="demo-note">需要配置真实 AI 后才能开始分析；API Key 只保存在你本机的环境变量中。</div>
+    </section>
+
+    <section id="resultView" class="view result-view hidden">
+      <div class="result-topbar"><button id="backButton" class="back-button">← 重新分析</button><span id="modeBadge" class="mode-badge"></span></div>
+      <div class="result-heading"><div class="eyebrow">YOUR NEXT MOVE / 02</div><h2 id="resultTitle">岗位拆解结果</h2><p>先看结论，再开始行动。每一部分都尽量对应一个具体动作。</p></div>
+      <div id="resultContent"></div>
+    </section>
+
+    <section id="trainingView" class="view result-view hidden">
+      <div class="result-topbar"><button class="back-button" data-view="resultView">← 返回岗位分析</button><span class="mode-badge">训练模式</span></div>
+      <div class="result-heading"><div class="eyebrow">PRACTICE ROOM / 03</div><h2>开始今日训练</h2><p>把最重要的短板，变成一次可以完成和复盘的实际练习。</p></div>
+      <div id="trainingContent"></div>
+    </section>
+
+    <section id="growthView" class="view result-view hidden">
+      <div class="result-topbar"><button class="back-button" data-view="homeView">← 返回首页</button><span class="mode-badge">本地记录</span></div>
+      <div class="result-heading"><div class="eyebrow">YOUR PROGRESS / 04</div><h2>我的成长</h2><p>每一次完成和修改，都会留下下一步的线索。</p></div>
+      <div id="growthContent"></div>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="/vendor/exceljs/exceljs.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

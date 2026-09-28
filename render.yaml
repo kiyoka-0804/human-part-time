@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: human-part-time
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        value: https://api.deepseek.com/v1
+      - key: OPENAI_MODEL
+        value: deepseek-chat
+      - key: OPENAI_JSON_MODE
+        value: "true"
